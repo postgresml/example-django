@@ -5,6 +5,15 @@
 This example application requires a PostgreSQL database with the PostgresML and pgvector extensions installed. The easiest way to get one is to sign up
 for a free database on [postgresml.org](https://postgresml.org).
 
+### Virtualenv
+
+It's recommended to use a virtual environment to run this example. You can create one using the following commands:
+
+```bash
+python3 -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
+```
 
 ### Setting `DATABASE_URL`
 
