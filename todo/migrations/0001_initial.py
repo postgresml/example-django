@@ -9,18 +9,32 @@ class Migration(migrations.Migration):
 
     initial = True
 
-    dependencies = [
-    ]
+    dependencies = []
 
     operations = [
         migrations.CreateModel(
-            name='TodoItem',
+            name="TodoItem",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('description', models.CharField(max_length=256)),
-                ('due_date', models.DateField()),
-                ('completed', models.BooleanField(default=False)),
-                ('embedding', models.GeneratedField(db_persist=True, expression=todo.models.EmbedSmallExpression('description'), output_field=pgvector.django.VectorField(dimensions=384))),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("description", models.CharField(max_length=256)),
+                ("due_date", models.DateField()),
+                ("completed", models.BooleanField(default=False)),
+                (
+                    "embedding",
+                    models.GeneratedField(
+                        db_persist=True,
+                        expression=todo.models.EmbedSmallExpression("description"),
+                        output_field=pgvector.django.VectorField(dimensions=384),
+                    ),
+                ),
             ],
         ),
     ]

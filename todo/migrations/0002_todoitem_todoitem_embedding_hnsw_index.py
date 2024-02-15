@@ -7,12 +7,18 @@ from django.db import migrations
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('todo', '0001_initial'),
+        ("todo", "0001_initial"),
     ]
 
     operations = [
         migrations.AddIndex(
-            model_name='todoitem',
-            index=pgvector.django.HnswIndex(ef_construction=64, fields=['embedding'], m=16, name='todoitem_embedding_hnsw_index', opclasses=['vector_cosine_ops']),
+            model_name="todoitem",
+            index=pgvector.django.HnswIndex(
+                ef_construction=64,
+                fields=["embedding"],
+                m=16,
+                name="todoitem_embedding_hnsw_index",
+                opclasses=["vector_cosine_ops"],
+            ),
         ),
     ]
