@@ -9,7 +9,7 @@ class EmbedSmallExpression(models.Expression):
     An expression to automatically embed any text column in the same table.
     """
 
-    output_field = VectorField(null=False, blank=True, dimensions=384)
+    output_field = VectorField(null=False, blank=False, dimensions=384)
 
     def __init__(self, field):
         self.embedding_field = field
