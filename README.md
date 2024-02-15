@@ -29,18 +29,18 @@ Using cURL, make a POST request to `/api/todo/` with the two required fields, de
 
 ```bash
 curl \
-	--silent \
-	-X POST \
-	-d '{"description": "Make a New Year resolution list", "due_date": "2025-01-01"}' \
-	-H 'Content-Type: application/json' \
-	http://localhost:8000/api/todo/
+    --silent \
+    -X POST \
+    -d '{"description": "Make a New Year resolution list", "due_date": "2025-01-01"}' \
+    -H 'Content-Type: application/json' \
+    http://localhost:8000/api/todo/
 ```
 
 ### Searching for similar TODO items
 
 ```bash
 curl \
-	--silent \
-	-H "Content-Type: application/json" \
-	'http://localhost:8000/api/todo/search/?q=resolution&limit=1' | jq ".[0].description"
+    --silent \
+    -H "Content-Type: application/json" \
+    'http://localhost:8000/api/todo/search/?q=resolution&limit=1' | jq ".[0].description"
 ```
