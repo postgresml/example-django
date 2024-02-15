@@ -5,6 +5,8 @@
 This example application requires a PostgreSQL database with the PostgresML and pgvector extensions installed. The easiest way to get one is to sign up
 for a free database on [postgresml.org](https://postgresml.org).
 
+We're using `curl` to make requests to the app, so if you don't have it already install both `curl` and `jq`.
+
 ### Virtualenv
 
 It's recommended to use a virtual environment to run this example. You can create one using the following commands:
