@@ -20,6 +20,10 @@ class TodoItemViewSet(viewsets.ModelViewSet):
         """
         query = request.query_params.get("q")
         completed = request.query_params.get("completed")
+        limit = request.query_params.get("limit")
+
+        if limit:
+            limit = int(limit)
 
         if completed:
             completed = completed.lower() == "true"
@@ -37,6 +41,9 @@ class TodoItemViewSet(viewsets.ModelViewSet):
 
             if completed:
                 results = results.filter(completed=completed)
+
+            if limit:
+                results = results[:limit]
 
             # If you want to see the query that is executed, uncomment the following line.
             # print(results.query)
