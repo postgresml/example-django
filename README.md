@@ -36,7 +36,7 @@ curl \
     http://localhost:8000/api/todo/
 ```
 
-### Searching for similar TODO items
+### Searching for similar items
 
 ```bash
 curl \
