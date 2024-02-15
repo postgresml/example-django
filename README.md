@@ -17,6 +17,6 @@ export DATABASE_URL=postgres://postgres:postgres@127.0.0.1:5432/postgres
 ### Running the app
 
 ```bash
-./manage migrate
-./manage runserver
+./manage.py migrate
+./manage.py runserver
 ```
