@@ -19,6 +19,13 @@ class TodoItemViewSet(viewsets.ModelViewSet):
         Search the TODO list by embedding similarity.
         """
         query = request.query_params.get("q")
+        completed = request.query_params.get("completed")
+
+        if completed:
+            completed = completed.lower() == "true"
+        else:
+            completed = False
+
         if query:
             results = TodoItem.objects.annotate(
                 # Use cosine similarty to find closest matches by their linguistic meaning
@@ -27,6 +34,9 @@ class TodoItemViewSet(viewsets.ModelViewSet):
                     [query],
                 )
             ).order_by("similarity")
+
+            if completed:
+                results = results.filter(completed=completed)
 
             # If you want to see the query that is executed, uncomment the following line.
             # print(results.query)
